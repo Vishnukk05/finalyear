@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-dark-sky-blue {
+            background-color: #370bfcc4; 
+        }
+        .bg-light-sky-blue {
+            background-color: #370bfcc4; 
+        }
+        .text-dark-sky-blue {
+            color: #370bfcc4;
+        .text-light-sky-blue {
+            color: #370bfcc4; 
+        }
+        .hover:bg-light-sky-blue {
+            transition: background-color 0.3s ease;
+        }
+        .hover:bg-light-sky-blue:hover {
+            background-color: #370bfcc4;
+    </style>
+</head>
+<body class="bg-gray-100 flex">
+    <!-- Sidebar -->
+    <div class="w-1/4 bg-white shadow-md p-4 flex flex-col items-center">
+        <img alt="Profile Photo" class="rounded-full mb-4" height="100" src="D:\FINAL YEAR PROJECT\project\download.jpg" width="100"/>
+        <p class="text-2xl font-bold mb-6 text-dark-sky-blue">Username</p>
+        <nav class="w-full">
+            <ul class="space-y-4">
+                <li>
+                    <button class="w-full text-left py-2 px-4 rounded hover:bg-light-sky-blue text-dark-sky-blue" onclick="showSection('dashboard')">
+                        Dashboard
+                    </button>
+                </li>
+                <li>
+                    <button class="w-full text-left py-2 px-4 rounded hover:bg-light-sky-blue text-dark-sky-blue" onclick="showSection('userInfoContainer')">
+                        User Information
+                    </button>
+                </li>
+                <li>
+                    <button class="w-full text-left py-2 px-4 rounded hover:bg-light-sky-blue text-dark-sky-blue" onclick="showSection('moduleContainer')">
+                        Module
+                    </button>
+                </li>
+                <li>
+                    <button class="w-full text-left py-2 px-4 rounded hover:bg-light-sky-blue text-dark-sky-blue" onclick="showSection('interviewContainer')">
+                        Interview
+                    </button>
+                </li>
+                <li>
+                    <button class="w-full text-left py-2 px-4 rounded hover:bg-light-sky-blue text-dark-sky-blue" onclick="showSection('performanceContainer')">
+                        Performance
+                    </button>
+                </li>
+                <li>
+                    <button class="w-full text-left py-2 px-4 rounded hover:bg-light-sky-blue text-dark-sky-blue" onclick="showSection('taskContainer')">
+                        Task
+                    </button>
+                </li>
+                <li>
+                    <button class="w-full text-left py-2 px-4 rounded hover:bg-light-sky-blue text-dark-sky-blue" onclick="showSection('helpContainer')">
+                        Help
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- Main Content -->
+    <div class="w-3/4 p-4">
+        <!-- Dashboard -->
+        <div class="bg-white shadow-md rounded-lg p-6 mb-6" id="dashboard">
+            <h2 class="text-3xl font-bold mb-4 text-dark-sky-blue">Dashboard</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-dark-sky-blue text-white p-4 rounded cursor-pointer transition-transform transform hover:scale-105" onclick="showSection('userInfoContainer')">
+                    <h3 class="text-xl font-bold">User  Information</h3>
+                </div>
+                <div class="bg-light-sky-blue text-white p-4 rounded cursor-pointer transition-transform transform hover:scale-105" onclick="showSection('moduleContainer')">
+                    <h3 class="text-xl font-bold">Module</h3>
+                </div>
+                <div class="bg-dark-sky-blue text-white p-4 rounded cursor-pointer transition-transform transform hover:scale-105" onclick="showSection('interviewContainer')">
+                    <h3 class="text-xl font-bold">Interview</h3>
+                </div>
+                <div class="bg-light-sky-blue text-white p-4 rounded cursor-pointer transition-transform transform hover:scale-105" onclick="showSection('performanceContainer')">
+                    <h3 class="text-xl font-bold">Performance</h3>
+                </div>
+                <div class="bg-dark-sky-blue text-white p-4 rounded cursor-pointer transition-transform transform hover:scale-105" onclick="showSection('taskContainer')">
+                    <h3 class="text-xl font-bold">Task</h3>
+                </div>
+                <div class="bg-light-sky-blue text-white p-4 rounded cursor-pointer transition-transform transform hover:scale-105" onclick="showSection('helpContainer')">
+                    <h3 class="text-xl font-bold">Help</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Info -->
+        <div class="container mx-auto p-4 mt-6 hidden" id="userInfoContainer">
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-2xl font-bold mb-4 text-center text-dark-sky-blue">User  Information</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white text-center">
+                        <thead>
+                            <tr>
+                                <th class="py-2 px-4 border-b">Name</th>
+                                <th class="py-2 px-4 border-b">Age</th>
+                                <th class="py-2 px-4 border-b">Batch</th>
+                                <th class="py-2 px-4 border-b">Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b">John Doe</td>
+                                <td class="py-2 px-4 border-b">20</td>
+                                <td class="py-2 px-4 border-b">A</td>
+                                <td class="py-2 px-4 border-b">john@example.com</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b">Jane Smith</td>
+                                <td class="py-2 px-4 border-b">22</td>
+                                <td class="py-2 px-4 border-b">B</td>
+                                <td class="py-2 px-4 border-b">jane@example.com</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-6 text-center">
+                    <button class="bg-dark-sky-blue hover:bg-light-sky-blue text-white font-bold py-2 px-4 rounded" onclick="goBackToHome()">
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Module -->
+        <div class="container mx-auto p-4 mt-6 hidden" id="moduleContainer">
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-2xl font-bold mb-4 text-center text-dark-sky-blue">Module Options</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-200 p-4 rounded">
+                        <h3 class="text-xl font-bold">C</h3>
+                    </div>
+                    <div class="bg-gray-200 p-4 rounded">
+                        <h3 class="text-xl font-bold">C++</h3>
+                    </div>
+                    <div class="bg-gray-200 p-4 rounded">
+                        <h3 class="text-xl font-bold">Java</h3>
+                    </div>
+                    <div class="bg-gray-200 p-4 rounded">
+                        <h3 class="text-xl font-bold">Python</h3>
+                    </div>
+                    <div class="bg-gray-200 p-4 rounded">
+                        <h3 class="text-xl font-bold">HTML</h3>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <button class="bg-dark-sky-blue hover:bg-light-sky-blue text-white font-bold py-2 px-4 rounded" onclick="goBackToHome()">
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interview History -->
+        <div class="container mx-auto p-4 mt-6 hidden" id="interviewContainer">
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-2xl font-bold mb-4 text-center text-dark-sky-blue">Interview History</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white text-center">
+                        <thead>
+                            <tr>
+                                <th class="py-2 px-4 border-b">Date</th>
+                                <th class="py-2 px-4 border-b">Interviewer</th>
+                                <th class="py-2 px-4 border-b">Candidate</th>
+                                <th class="py-2 px-4 border-b">Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b">2023-01-01</td>
+                                <td class="py-2 px-4 border-b">John Doe</td>
+                                <td class="py-2 px-4 border-b">Jane Smith</td>
+                                <td class="py-2 px-4 border-b">Passed</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b">2023-01-02</td>
+                                <td class="py-2 px-4 border-b">Alice Johnson</td>
+                                <td class="py-2 px-4 border-b">Bob Brown</td>
+                                <td class="py-2 px-4 border-b">Failed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-6 text-center">
+                    <button class="bg-dark-sky-blue hover:bg-light-sky-blue text-white font-bold py-2 px-4 rounded" onclick="goBackToHome()">
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance -->
+        <div class="container mx-auto p-4 mt-6 hidden" id="performanceContainer">
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-2xl font-bold mb-4 text-center text-dark-sky-blue">Student Performance</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white text-center">
+                        <thead>
+                            <tr>
+                                <th class="py-2 px-4 border-b">Name</th>
+                                <th class="py-2 px-4 border-b">Interview Date</th>
+                                <th class="py-2 px-4 border-b">Result</th>
+                                <th class="py-2 px-4 border-b">Remark</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b">John Doe</td>
+                                <td class="py-2 px-4 border-b">2023-01-01</td>
+                                <td class="py-2 px-4 border-b">Passed</td>
+                                <td class="py-2 px-4 border-b">Good</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b">Jane Smith</td>
+                                <td class="py-2 px-4 border-b">2023-01-02</td>
+                                <td class="py-2 px-4 border-b">Failed</td>
+                                <td class="py-2 px-4 border-b">Bad</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-6 text-center">
+                    <button class="bg-dark-sky-blue hover:bg-light-sky-blue text-white font-bold py-2 px-4 rounded" onclick="goBackToHome()">
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Task -->
+        <div class="container mx-auto p-4 mt-6 hidden" id="taskContainer">
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-2xl font-bold mb-4 text-center text-dark-sky-blue">Task Videos</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-200 p-4 rounded">
+                        <a href="https://youtu.be/gDN7cJ3Rt80?si=b2GKbbvl4DN4olh-" target="_blank">
+                            <img src="https://img.youtube.com/vi/gDN7cJ3Rt80/0.jpg" alt="Video Thumbnail" class="w-full h-32 object-cover rounded mb-2">
+                            <h3 class="text-xl font-bold">ENGLISH</h3>
+                        </a>
+                    </div>
+                    <div class="bg-gray-200 p-4 rounded">
+                        <a href="https://youtu.be/RfFbA5uHqqw?si=tgrBPj9VIn89VPoc" target="_blank">
+                            <img src="https://img.youtube.com/vi/RfFbA5uHqqw/0.jpg" alt="Video Thumbnail" class="w-full h-32 object-cover rounded mb-2">
+                            <h3 class="text-xl font-bold">COMMUNICATION SKILL</h3>
+                        </a>
+                    </div>
+                    <div class="bg-gray-200 p-4 rounded">
+                        <a href="https://youtu.be/oX5Y26O5dBE?si=ZRu0oU4jxse6dvSd" target="_blank">
+                            <img src="D:\FINAL YEAR PROJECT\project\sql.png" alt="Video Thumbnail" class="w-full h-32 object-cover rounded mb-2">
+                            <h3 class="text-xl font-bold">SQL DATABASE</h3>
+                        </a>
+                    </div>
+                    <div class="bg-gray-200 p-4 rounded">
+                        <a href="https://youtu.be/oeA3dskWKxE?si=9NcHL7gQJroVpGKy" target="_blank">
+                            <img src="D:\FINAL YEAR PROJECT\project\CPROGRAM.png" alt="Video Thumbnail" class="w-full h-32 object-cover rounded mb-2">
+                            <h3 class="text-xl font-bold">PROGRAMING </h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <button class="bg-dark-sky-blue hover:bg-light-sky-blue text-white font-bold py-2 px-4 rounded" onclick="goBackToHome()">
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help -->
+        <div class="container mx-auto p-4 mt-6 hidden" id="helpContainer">
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-2xl font-bold mb-4 text-center text-dark-sky-blue">Help Section</h2>
+                <p class="text-lg mb-4">The Interview Reviewer App is designed to help manage and review interview processes efficiently. It allows interviewers to log interview details, track candidate performance, and provide feedback.</p>
+                <div class="mt-6 text-center">
+                    <button class="bg-dark-sky-blue hover:bg-light-sky-blue text-white font-bold py-2 px-4 rounded" onclick="goBackToHome()">
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            hideAllContainers();
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        function goBackToHome() {
+            hideAllContainers();
+            document.getElementById('dashboard').classList.remove('hidden');
+        }
+
+        function hideAllContainers() {
+            const containers = [
+                'dashboard',
+                'userInfoContainer',
+                'moduleContainer',
+                'interviewContainer',
+                'performanceContainer',
+                'taskContainer',
+                'helpContainer'
+            ];
+            containers.forEach(container => {
+                document.getElementById(container).classList.add('hidden');
+            });
+        }
+
+        // Show dashboard initially
+        showSection('dashboard');
+    </script>
+</body>
+        }
+</html>

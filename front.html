@@ -1,0 +1,266 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Login - Interview Reviewer
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+        }
+  </style>
+ </head>
+ <body class="bg-gray-100 flex items-center justify-center min-h-screen relative">
+  <img alt="A person doing an interview in a library setting" class="absolute inset-0 w-full h-full object-cover opacity-50" height="1080" src="D:\FINAL YEAR PROJECT\project\background.jpg" width="1920"/>
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md relative z-10">
+   <h2 class="text-2xl font-bold mb-6 text-center">
+    Login to Interview Reviewer
+   </h2>
+   <!-- Login Form -->
+   <form class="space-y-6" id="login-form" onsubmit="return handleLogin(event);">
+    <div>
+     <label class="block text-sm font-medium text-gray-700" for="username">
+      Username
+     </label>
+     <div class="mt-1">
+      <input class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="username" placeholder="Enter your username" required="" type="text"/>
+     </div>
+    </div>
+    <div>
+     <label class="block text-sm font-medium text-gray-700" for="password">
+      Password
+     </label>
+     <div class="mt-1">
+      <input class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="password" placeholder="Enter your password" required="" type="password"/>
+     </div>
+    </div>
+    <div>
+     <button class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="submit">
+      Login
+     </button>
+    </div>
+   </form>
+   <div class="text-center text-sm mt-4" id="login-links">
+    <a class="text-indigo-600 hover:text-indigo-500" href="javascript:void(0);" onclick="showForgotPassword()">
+     Forgot Password?
+    </a>
+    |
+    <a class="text-indigo-600 hover:text-indigo-500" href="javascript:void(0);" onclick="showSignupForm()">
+     Sign Up
+    </a>
+   </div>
+   <!-- Forgot Password Request Form -->
+   <div class="hidden space-y-6" id="forgot-password-request">
+    <h2 class="text-2xl font-bold mb-6 text-center">
+     Forgot Password
+    </h2>
+    <div>
+     <label class="block text-sm font-medium text-gray-700" for="email">
+      Email address
+     </label>
+     <div class="mt-1">
+      <input autocomplete="email" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="email" name="email" required="" type="email"/>
+     </div>
+    </div>
+    <div>
+     <button class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" onclick="sendResetLink()" type="button">
+      Send Reset Link
+     </button>
+    </div>
+    <div>
+     <button class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" onclick="showLoginForm()" type="button">
+      Back to Login
+     </button>
+    </div>
+    <p class="mt-6 text-center text-green-500 hidden" id="success-message">
+     A password reset link has been sent to your email.
+    </p>
+   </div>
+   <!-- Forgot Password Form -->
+   <div class="hidden space-y-6" id="forgot-password-form">
+    <div>
+     <label class="block text-sm font-medium text-gray-700" for="new-password">
+      New Password
+     </label>
+     <div class="mt-1">
+      <input class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="new-password" placeholder="Enter your new password" required="" type="password"/>
+     </div>
+    </div>
+    <div>
+     <label class="block text-sm font-medium text-gray-700" for="reenter-password">
+      Re-enter New Password
+     </label>
+     <div class="mt-1">
+      <input class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="reenter-password" placeholder="Re-enter your new password" required="" type="password"/>
+     </div>
+    </div>
+    <div>
+     <button class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" onclick="changePassword()" type="button">
+      Submit
+     </button>
+    </div>
+    <div>
+     <button class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" onclick="showLoginForm()" type="button">
+      Back to Login
+     </button>
+    </div>
+   </div>
+   <!-- Signup Form -->
+   <div class="hidden space-y-6" id="signup-form">
+    <div>
+     <label class="block text-sm font-medium text-gray-700" for="firstname">
+      First Name
+     </label>
+     <div class="mt-1">
+      <input class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="firstname" placeholder="Enter your first name" required="" type="text"/>
+     </div>
+    </div>
+    <div>
+     <label class="block text-sm font-medium text-gray-700" for="lastname">
+      Last Name
+     </label>
+     <div class="mt-1">
+      <input class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="lastname" placeholder="Enter your last name" required="" type="text"/>
+     </div>
+    </div>
+    <div>
+     <label class="block text-sm font-medium text-gray-700" for="signup-username">
+      Username
+     </label>
+     <div class="mt-1">
+      <input class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="signup-username" placeholder="Enter your username" required="" type="text"/>
+     </div>
+    </div>
+    <div>
+     <label class="block text-sm font-medium text-gray-700" for="dob">
+      Date of Birth
+     </label>
+     <div class="mt-1">
+      <input class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="dob" required="" type="date"/>
+     </div>
+    </div>
+    <div>
+     <label class="block text-sm font-medium text-gray-700" for="center">
+      Center
+     </label>
+     <div class="mt-1">
+      <input class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="center" placeholder="Enter your center" required="" type="text"/>
+     </div>
+    </div>
+    <div>
+     <label class="block text-sm font-medium text-gray-700" for="batch">
+      Batch
+     </label>
+     <div class="mt-1">
+      <input class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="batch" placeholder="Enter your batch" required="" type="text"/>
+     </div>
+    </div>
+    <div>
+     <label class="block text-sm font-medium text-gray-700" for="signup-password">
+      Password
+     </label>
+     <div class="mt-1">
+      <input class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="signup-password" placeholder="Enter your password" required="" type="password"/>
+     </div>
+    </div>
+    <div>
+     <label class="block text-sm font-medium text-gray-700" for="signup-reenter-password">
+      Re-enter Password
+     </label>
+     <div class="mt-1">
+      <input class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="signup-reenter-password" placeholder="Re-enter your password" required="" type="password"/>
+     </div>
+    </div>
+    <div>
+     <button class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" onclick="createAccount()" type="button">
+      Submit
+     </button>
+    </div>
+    <div>
+     <button class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" onclick="showLoginForm()" type="button">
+      Back to Login
+     </button>
+    </div>
+   </div>
+  </div>
+  <script>
+   function showForgotPassword() {
+            document.getElementById('login-form').classList.add('hidden');
+            document.getElementById('login-links').classList.add('hidden');
+            document.getElementById('forgot-password-request').classList.remove('hidden');
+        }
+
+        function showLoginForm() {
+            document.getElementById('forgot-password-request').classList.add('hidden');
+            document.getElementById('forgot-password-form').classList.add('hidden');
+            document.getElementById('signup-form').classList.add('hidden');
+            document.getElementById('login-form').classList.remove('hidden');
+            document.getElementById('login-links').classList.remove('hidden');
+        }
+
+        function showSignupForm() {
+            document.getElementById('login-form').classList.add('hidden');
+            document.getElementById('login-links').classList.add('hidden');
+            document.getElementById('signup-form').classList.remove('hidden');
+        }
+
+        function sendResetLink() {
+            const email = document.getElementById('email').value;
+
+            if (email) {
+                document.getElementById('success-message').classList.remove('hidden');
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        }
+
+        function changePassword() {
+            const newPassword = document.getElementById('new-password').value;
+            const reenterPassword = document.getElementById('reenter-password').value;
+
+            if (newPassword && reenterPassword && newPassword === reenterPassword) {
+                alert('Password changed successfully');
+                showLoginForm();
+            } else {
+                alert('Passwords do not match or fields are empty.');
+            }
+        }
+
+        function createAccount() {
+            const firstname = document.getElementById('firstname').value;
+            const lastname = document.getElementById('lastname').value;
+            const username = document.getElementById('signup-username').value;
+            const dob = document.getElementById('dob').value;
+            const center = document.getElementById('center').value;
+            const batch = document.getElementById('batch').value;
+            const password = document.getElementById('signup-password').value;
+            const reenterPassword = document.getElementById('signup-reenter-password').value;
+
+            if (password && reenterPassword && password === reenterPassword) {
+                alert('Account created successfully');
+                showLoginForm();
+            } else {
+                alert('Passwords do not match or fields are empty.');
+            }
+        }
+
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent form submission
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Here you would typically send the username and password to your server for validation
+            if (username && password) {
+                alert('Login successful!'); // Replace with actual login logic
+            } else {
+                alert('Please enter both username and password.');
+            }
+        }
+  </script>
+ </body>
+</html>
